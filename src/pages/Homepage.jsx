@@ -1,0 +1,36 @@
+import { Link } from "react-router-dom";
+import banner from "../assets/images/interview.svg";
+
+function Homepage() {
+  return (
+      <div className="flex flex-row gap-5 w-full h-screen items-center align-middle justify-center dark:text-white lg:md:container">
+        <h1 className="text-4xl font-bold mt-2 ">JobToday</h1>
+        <img src={banner} alt="banner" className="w-1/2 h-1/2"></img>
+        <div className="flex flex-col">
+          <p className="p-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            beatae culpa, quis rem libero velit facere asperiores dicta aperiam
+            dolorem quasi! Tenetur rem quaerat omnis harum eaque saepe, nam
+            nisi.
+          </p>
+          <p className="p-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            aliquid eveniet? Numquam pariatur enim, consequatur hic accusamus
+            quaerat, itaque nostrum corporis nihil delectus ratione mollitia
+            architecto quo dicta vel. Necessitatibus. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Atque beatae culpa, quis rem libero
+            velit facere asperiores dicta aperiam dolorem quasi! Tenetur rem
+            quaerat omnis harum eaque saepe, nam nisi.
+          </p>
+          <Link
+            to="/register"
+            className="btn bg-yellow-400 hover:bg-yellow-500 hover:shadow-md"
+          >
+            Get started
+          </Link>
+        </div>
+      </div>
+  );
+}
+
+export default Homepage;
