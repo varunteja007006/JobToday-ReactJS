@@ -1,24 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import signinImage from "../assets/images/sign_in.svg";
 import FormField from "../components/forms/FormField";
 import Errormessage from "../components/messages/Errormessage";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, registerUser } from "../features/user/userSlice";
+import { useNavigate } from "react-router-dom";
+
+const initialState = {
+  name: "",
+  email: "",
+  password: "",
+};
 
 function Registerpage() {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  //Form values
+  const [values, setValues] = useState(initialState);
 
+  // Boolean to login user or register user
   const [login, setLogin] = useState(true);
+
+  // To trigger errors
   const [errorMessageTrigger, setErrorMessageTrigger] = useState(false);
 
+  //user Redux store
+  const { user, isLoading } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+
+  //handle the form data and update the fields
   const handleChange = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const navigate = useNavigate();
+
+  //handle the form submittion
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, password } = values;
@@ -26,8 +41,20 @@ function Registerpage() {
       setErrorMessageTrigger(true);
       return;
     }
+    if (login) {
+      dispatch(loginUser({ email, password }));
+      setErrorMessageTrigger(false);
+      setValues(initialState);
+      return;
+    }
+    dispatch(registerUser({ name, email, password }));
     setErrorMessageTrigger(false);
+    setValues(initialState);
   };
+
+  useEffect(() => {
+    navigate("/");
+  }, [user, navigate]);
 
   return (
     <div className="flex flex-row gap-5 w-full h-screen dark:text-white lg:md:container items-center justify-evenly">
@@ -81,8 +108,9 @@ function Registerpage() {
           <button
             type="submit"
             className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2"
+            disabled={isLoading}
           >
-            Submit
+            {isLoading ? "Loading..." : "Submit"}
           </button>
 
           <p className="text-sm">
