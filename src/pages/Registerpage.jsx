@@ -53,16 +53,18 @@ function Registerpage() {
   };
 
   useEffect(() => {
-    navigate("/");
+    navigate("/register");
   }, [user, navigate]);
 
   return (
-    <div className="flex flex-row gap-5 w-full h-screen dark:text-white lg:md:container items-center justify-evenly">
-      <img src={signinImage} alt="sign in image" className="w-1/2" />
-      <span className="border border-gray-800 p-1 bg-gray-800">
+    <div className="flex flex-col lg:flex-row md:flex-row gap-5 w-full h-screen dark:text-white lg:md:container items-center justify-evenly">
+      <div className="hidden lg:contents">
+        <img src={signinImage} alt="sign in image" className="w-1/2" />
+      </div>
+      <span className="border border-gray-800 p-1 bg-gray-800 w-50 lg:w-fit">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-3 border p-5 border-gray-800 bg-slate-200"
+          className="flex flex-col gap-3 border p-2 md:p-5 lg:p-5  border-gray-800 bg-slate-200"
         >
           <h4 className="text-lg font-semibold">
             {!login ? "Register" : "Login"}

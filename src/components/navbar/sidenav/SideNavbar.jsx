@@ -3,7 +3,7 @@ import { sidenavlinks } from "./sidenavlinks";
 
 function SideNavbar() {
   return (
-    <div className="flex flex-col max-w-fit">
+    <div className="flex flex-col max-w-fit sm:flex-row ">
       <ul className="menu bg-white">
         {sidenavlinks &&
           sidenavlinks.map((item) => {
