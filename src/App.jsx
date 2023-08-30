@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       {/* main tab is to toggle between dark and light modes */}
       <main className="light">
-        <div className=" bg-blue-200 dark:bg-gray-800">
+        <div className="bg-blue-100 dark:bg-gray-800 dark:text-white">
           {/* navigation bar */}
           <Navbar></Navbar>
           <Routes>

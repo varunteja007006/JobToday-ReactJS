@@ -60,9 +60,12 @@ function Registerpage() {
 
   return (
     <div className="flex flex-col lg:flex-row md:flex-row gap-5 w-full h-screen dark:text-white lg:md:container items-center justify-evenly">
+      {/* login/register page image */}
       <div className="hidden lg:contents">
         <img src={signinImage} alt="sign in image" className="w-1/2" />
       </div>
+
+      {/* login/register form */}
       <span className="border border-gray-800 p-1 bg-gray-800 w-50 lg:w-fit">
         <form
           onSubmit={handleSubmit}
@@ -91,15 +94,6 @@ function Registerpage() {
             value={values.email}
             handleChange={handleChange}
           />
-
-          {/* <label>{name}</label>
-          <input
-            className="border border-gray-500"
-            onChange={handleChange}
-            type="text"
-            name="name"
-            value={values.name}
-          /> */}
 
           <FormField
             label="Password"
@@ -150,6 +144,8 @@ function Registerpage() {
           </p>
         </form>
       </span>
+
+      {/* login/register error messages */}
       {errorMessageTrigger && (
         <Errormessage
           message={"Fill all the required fields"}

@@ -1,6 +1,6 @@
 import { navlinks } from "./navlinks";
 import logo from "../../assets/images/logo.svg";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../features/user/userSlice";
 
@@ -10,7 +10,8 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-slate-100">
+        {/* logo and brandname */}
         <div className="lg:flex-1 navbar-center">
           <img
             src={logo}
@@ -66,7 +67,8 @@ function Navbar() {
         {/* Small screen navbar */}
         <div className="navbar-end lg:hidden">
           <div className="dropdown dropdown-end">
-            <button className="btn btn-square btn-ghost">
+            {/* dropdown hamburger symbol */}
+            <button className="btn btn-square hover:bg-slate-300 bg-slate-200 border border-slate-300 hover:shadow-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -81,13 +83,48 @@ function Navbar() {
                 ></path>
               </svg>
             </button>
+            {/* dropdown menu options */}
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 w-52 rounded-lg bg-base-100"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 w-fit rounded-lg bg-slate-100"
             >
-              <li className="">
-                <Link to="/">Homepage</Link>
+              <li key="home" className="">
+                <Link
+                  to="/"
+                  className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                >
+                  Homepage
+                </Link>
               </li>
+              
+              {!user &&
+                navlinks.map((item) => {
+                  return (
+                    <li key={item.page_name} className="">
+                      <Link
+                        to={item.page_url}
+                        className="hover:bg-slate-400 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                      >
+                        {item.page_name}
+                      </Link>
+                    </li>
+                  );
+                })}
+
+              {user && (
+                <li key="logout" className="">
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      dispatch(logoutUser());
+                    }}
+                    className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                  >
+                    Logout
+                  </Link>
+                </li>
+              )}
+
             </ul>
           </div>
         </div>
