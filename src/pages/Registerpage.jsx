@@ -53,7 +53,9 @@ function Registerpage() {
   };
 
   useEffect(() => {
-    navigate("/register");
+    if (user) {
+      navigate("/dashboard/alljobs");
+    }
   }, [user, navigate]);
 
   return (

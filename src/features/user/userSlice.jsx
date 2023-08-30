@@ -40,10 +40,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logoutUser: (state) => {
-      (state.user = null), removeUserFromLocalStorage();
+      state.user = null;
+      removeUserFromLocalStorage();
     },
   },
-  extraReducers:  (builder) => {
+  extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
@@ -51,7 +52,7 @@ const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.user = payload.user;
-        addUserToLocalStorage(state.user);  
+        addUserToLocalStorage(state.user);
       })
       .addCase(registerUser.rejected, (state) => (state.isLoading = false))
       .addCase(loginUser.pending, (state) => {

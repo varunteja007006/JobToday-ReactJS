@@ -1,6 +1,6 @@
 import { navlinks } from "./navlinks";
 import logo from "../../assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../features/user/userSlice";
 
@@ -21,41 +21,45 @@ function Navbar() {
             JobToday
           </Link>
         </div>
+        {/* Big screen navbar */}
         <div className="navbar-end lg:flex md:flex hidden">
-          {navlinks.map((item) => {
-            return (
-              <Link
-                className="btn bg-yellow-400 ms-2 normal-case text-lg hover:bg-yellow-300"
-                key={item.page_name}
-                to={item.page_url}
-              >
-                {item.page_name}
-              </Link>
-            );
-          })}
+          {!user &&
+            navlinks.map((item) => {
+              return (
+                <Link
+                  className="btn bg-yellow-400 ms-2 normal-case text-md px-2 hover:bg-yellow-300"
+                  key={item.page_name}
+                  to={item.page_url}
+                >
+                  {item.page_name}
+                </Link>
+              );
+            })}
           {user && (
-            <div className="dropdown  dropdown-bottom dropdown-end">
-              <label
+            <div className="navbar-end lg:flex md:flex hidden items-center">
+              <span
                 tabIndex={0}
-                className="btn m-1 bg-yellow-400 ms-2 normal-case text-lg hover:bg-yellow-300 w-52"
+                className="ms-2 normal-case text-md px-3 py-1 rounded-lg font-semibold bg-green-200 border border-green-700"
               >
-                Anonymous User
-              </label>
-              <ul
-                tabIndex={0}
-                className="dropdown-content z-[1] menu bg-transparent rounded-box w-52 "
-              >
-                <li>
-                  <Link
-                    className="btn bg-yellow-400 ms-2 normal-case text-xl hover:bg-yellow-300"
-                    key={"logout"}
-                    to={"/logout"}
-                    onClick={()=>dispatch(logoutUser)}
-                  >
-                    {"logout"}
-                  </Link>
-                </li>
-              </ul>
+                Logged in as:
+                <Link
+                  key={"profile"}
+                  to={"dashboard/profile"}
+                  className="btn bg-green-600 ms-2 rounded-lg text-md hover:bg-green-500 text-white items-center"
+                >
+                  {user.name}
+                </Link>
+                <Link
+                  className="btn bg-red-600 ms-2 rounded-lg text-md hover:bg-red-500 text-white items-center"
+                  key={"logout"}
+                  to={"/"}
+                  onClick={() => {
+                    dispatch(logoutUser());
+                  }}
+                >
+                  {"logout"}
+                </Link>
+              </span>
             </div>
           )}
         </div>
@@ -82,7 +86,7 @@ function Navbar() {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 w-52 rounded-lg bg-base-100"
             >
               <li className="">
-                <Link to="/" >Homepage</Link>
+                <Link to="/">Homepage</Link>
               </li>
             </ul>
           </div>

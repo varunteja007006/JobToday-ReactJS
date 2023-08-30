@@ -8,6 +8,7 @@ import Stats from "./pages/dashboard/Stats";
 import Alljobs from "./pages/dashboard/Alljobs";
 import Profile from "./pages/dashboard/Profile";
 import Addjobs from "./pages/dashboard/Addjobs";
+import Protectedpage from "./pages/Protectedpage";
 
 function App() {
   return (
@@ -15,20 +16,28 @@ function App() {
       {/* main tab is to toggle between dark and light modes */}
       <main className="light">
         <div className=" bg-blue-200 dark:bg-gray-800">
+          {/* navigation bar */}
           <Navbar></Navbar>
           <Routes>
             <Route path="/" element={<Homepage></Homepage>}></Route>
-            <Route path="/dashboard/" element={<DashboardMain></DashboardMain>}>
-              <Route index element={<Stats></Stats>}></Route>
-              <Route exact path="alljobs" element={<Alljobs></Alljobs>}></Route>
-              <Route path="addjobs" element={<Addjobs></Addjobs>}></Route>
-              <Route path="profile" element={<Profile></Profile>}></Route>
-            </Route>
             <Route path="/error" element={<Errorpage></Errorpage>}></Route>
             <Route
               path="/register"
               element={<Registerpage></Registerpage>}
             ></Route>
+            <Route
+              path="/dashboard/"
+              element={
+                <Protectedpage>
+                  <DashboardMain></DashboardMain>
+                </Protectedpage>
+              }
+            >
+              <Route index element={<Stats></Stats>}></Route>
+              <Route exact path="alljobs" element={<Alljobs></Alljobs>}></Route>
+              <Route path="addjobs" element={<Addjobs></Addjobs>}></Route>
+              <Route path="profile" element={<Profile></Profile>}></Route>
+            </Route>
           </Routes>
         </div>
       </main>
