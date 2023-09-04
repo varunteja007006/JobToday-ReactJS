@@ -1,5 +1,7 @@
+import PageTitle from "../../components/dashboard/PageTitle";
+
 function Stats() {
-  return <div >Stats</div>;
+  return <PageTitle title={"Stats"}></PageTitle>;
 }
 
 export default Stats;

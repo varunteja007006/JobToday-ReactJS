@@ -3,9 +3,9 @@ import SideNavbar from "../../components/navbar/sidenav/SideNavbar";
 
 function DashboardMain() {
   return (
-    <div className="flex flex-row gap-5">
+    <div className="flex flex-row gap-2">
       <SideNavbar></SideNavbar>
-      <div className="my-4">
+      <div className="h-screen w-screen lg:md:px-5 pt-2">
         <Outlet></Outlet>
       </div>
     </div>

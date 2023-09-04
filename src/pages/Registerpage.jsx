@@ -66,10 +66,10 @@ function Registerpage() {
       </div>
 
       {/* login/register form */}
-      <span className="border border-gray-800 p-1 bg-gray-800 w-50 lg:w-fit">
+      <span className="border border-gray-800 p-1 bg-gray-800 w-50 dark:bg-gray-500 lg:w-fit">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-3 border p-2 md:p-5 lg:p-5  border-gray-800 bg-slate-200"
+          className="flex flex-col gap-3 border p-2 md:p-5 lg:p-5  border-gray-800 bg-slate-200 dark:bg-gray-800"
         >
           <h4 className="text-lg font-semibold">
             {!login ? "Register" : "Login"}
@@ -105,44 +105,46 @@ function Registerpage() {
 
           <button
             type="submit"
-            className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2"
+            className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2  dark:bg-gray-300 dark:text-black"
             disabled={isLoading}
           >
             {isLoading ? "Loading..." : "Submit"}
           </button>
-
-          <p className="text-sm">
-            {login ? (
-              <>
-                {" "}
-                Not a member ? {""}
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setLogin(!login);
-                  }}
-                  className="font-bold text-blue-800"
-                >
-                  Register here
-                </button>
-              </>
-            ) : (
-              <>
-                {" "}
-                Already a member ? {""}
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setLogin(!login);
-                  }}
-                  className="font-bold text-blue-800"
-                >
-                  Login here
-                </button>
-              </>
-            )}
-          </p>
         </form>
+
+        <p className="text-sm text-white text-center p-1">
+          {login ? (
+            <>
+              {" "}
+              Not a member ? {""}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLogin(!login);
+                  setValues({ ...values, password: "" });
+                }}
+                className="font-bold text-blue-400 dark:text-yellow-400"
+              >
+                Register here
+              </button>
+            </>
+          ) : (
+            <>
+              {" "}
+              Already a member ? {""}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLogin(!login);
+                  setValues({ ...values, password: "" });
+                }}
+                className="font-bold text-blue-400 dark:text-yellow-400"
+              >
+                Login here
+              </button>
+            </>
+          )}
+        </p>
       </span>
 
       {/* login/register error messages */}

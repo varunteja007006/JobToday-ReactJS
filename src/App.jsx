@@ -14,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       {/* main tab is to toggle between dark and light modes */}
-      <main className="light">
-        <div className="bg-blue-100 dark:bg-gray-800 dark:text-white">
+      <main className="dark">
+        <div className="bg-blue-100 text-black dark:bg-gray-700 dark:text-white">
           {/* navigation bar */}
           <Navbar></Navbar>
           <Routes>
@@ -34,7 +34,7 @@ function App() {
               }
             >
               <Route index element={<Stats></Stats>}></Route>
-              <Route exact path="alljobs" element={<Alljobs></Alljobs>}></Route>
+              <Route path="alljobs" element={<Alljobs></Alljobs>}></Route>
               <Route path="addjobs" element={<Addjobs></Addjobs>}></Route>
               <Route path="profile" element={<Profile></Profile>}></Route>
             </Route>

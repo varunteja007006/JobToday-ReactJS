@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar bg-slate-100">
+      <div className="navbar bg-slate-100 dark:bg-cyan-900">
         {/* logo and brandname */}
         <div className="lg:flex-1 navbar-center">
           <img
@@ -40,7 +40,7 @@ function Navbar() {
             <div className="navbar-end lg:flex md:flex hidden items-center">
               <span
                 tabIndex={0}
-                className="ms-2 normal-case text-md px-3 py-1 rounded-lg font-semibold bg-green-200 border border-green-700"
+                className="ms-2 normal-case text-md px-3 py-1 rounded-lg font-semibold bg-green-200 border border-green-700 dark:border-white dark:bg-green-900"
               >
                 Logged in as:
                 <Link
@@ -65,10 +65,10 @@ function Navbar() {
           )}
         </div>
         {/* Small screen navbar */}
-        <div className="navbar-end lg:hidden">
+        <div className="navbar-end flex flex-auto lg:hidden">
           <div className="dropdown dropdown-end">
             {/* dropdown hamburger symbol */}
-            <button className="btn btn-square hover:bg-slate-300 bg-slate-200 border border-slate-300 hover:shadow-md">
+            <button className="btn btn-square text-black hover:bg-slate-300 bg-slate-200 border border-slate-300 hover:shadow-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -96,7 +96,7 @@ function Navbar() {
                   Homepage
                 </Link>
               </li>
-              
+
               {!user &&
                 navlinks.map((item) => {
                   return (
@@ -124,7 +124,6 @@ function Navbar() {
                   </Link>
                 </li>
               )}
-
             </ul>
           </div>
         </div>
