@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import signinImage from "../assets/images/sign_in.svg";
 import FormField from "../components/forms/FormField";
-import Errormessage from "../components/messages/Errormessage";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const initialState = {
   name: "",
@@ -18,9 +18,6 @@ function Registerpage() {
 
   // Boolean to login user or register user
   const [login, setLogin] = useState(true);
-
-  // To trigger errors
-  const [errorMessageTrigger, setErrorMessageTrigger] = useState(false);
 
   //user Redux store
   const { user, isLoading } = useSelector((store) => store.user);
@@ -38,21 +35,21 @@ function Registerpage() {
     e.preventDefault();
     const { name, email, password } = values;
     if (!email || !password || (!login && !name)) {
-      setErrorMessageTrigger(true);
+      toast.error('Please fill out all fields');
       return;
     }
+    // if login is true do not register but login the user
     if (login) {
       dispatch(loginUser({ email, password }));
-      setErrorMessageTrigger(false);
       setValues(initialState);
       return;
     }
     dispatch(registerUser({ name, email, password }));
-    setErrorMessageTrigger(false);
     setValues(initialState);
   };
 
   useEffect(() => {
+    // if the user already exists then navigate out of login to dashboard
     if (user) {
       navigate("/dashboard/alljobs");
     }
@@ -74,7 +71,7 @@ function Registerpage() {
           <h4 className="text-lg font-semibold">
             {!login ? "Register" : "Login"}
           </h4>
-
+          {/* name field */}
           {!login && (
             <>
               <FormField
@@ -86,7 +83,7 @@ function Registerpage() {
               />
             </>
           )}
-
+          {/* email field */}
           <FormField
             label="Email"
             type="email"
@@ -94,7 +91,7 @@ function Registerpage() {
             value={values.email}
             handleChange={handleChange}
           />
-
+          {/* password field */}
           <FormField
             label="Password"
             type="password"
@@ -102,10 +99,10 @@ function Registerpage() {
             value={values.password}
             handleChange={handleChange}
           />
-
+          {/* submit button */}
           <button
             type="submit"
-            className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2  dark:bg-gray-300 dark:text-black"
+            className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2  btn dark:bg-gray-300 dark:text-black"
             disabled={isLoading}
           >
             {isLoading ? "Loading..." : "Submit"}
@@ -147,13 +144,6 @@ function Registerpage() {
         </p>
       </span>
 
-      {/* login/register error messages */}
-      {errorMessageTrigger && (
-        <Errormessage
-          message={"Fill all the required fields"}
-          setErrorMessageTrigger={setErrorMessageTrigger}
-        ></Errormessage>
-      )}
     </div>
   );
 }

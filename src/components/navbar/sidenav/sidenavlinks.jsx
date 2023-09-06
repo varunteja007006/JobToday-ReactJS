@@ -2,16 +2,20 @@ export const sidenavlinks = [
   {
     path_url: "alljobs",
     path_name: "All Jobs",
-    icon: "fa-solid fa-briefcase",
+    class_name: "fa-solid fa-briefcase",
+  },  {
+    path_url: "addjobs",
+    path_name: "Add Jobs",
+    class_name: "fa-solid fa-plus",
   },
   {
     path_url: "",
     path_name: "Stats",
-    icon: "fa-solid fa-chart-column",
+    class_name: "fa-solid fa-chart-column",
   },
   {
     path_url: "profile",
     path_name: "Profile",
-    icon: "fa-solid fa-user",
+    class_name: "fa-solid fa-user",
   },
 ];

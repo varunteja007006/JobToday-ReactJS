@@ -9,12 +9,13 @@ import Alljobs from "./pages/dashboard/Alljobs";
 import Profile from "./pages/dashboard/Profile";
 import Addjobs from "./pages/dashboard/Addjobs";
 import Protectedpage from "./pages/Protectedpage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <BrowserRouter>
       {/* main tab is to toggle between dark and light modes */}
-      <main className="dark">
+      <main className="light">
         <div className="bg-blue-100 text-black dark:bg-gray-700 dark:text-white">
           {/* navigation bar */}
           <Navbar></Navbar>
@@ -41,6 +42,7 @@ function App() {
           </Routes>
         </div>
       </main>
+      <ToastContainer  position='top-center' />
     </BrowserRouter>
   );
 }

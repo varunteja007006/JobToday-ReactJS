@@ -5,6 +5,7 @@ import { SlPencil } from "react-icons/sl/index";
 import PageTitle from "../../components/dashboard/PageTitle";
 import PageContent from "../../components/dashboard/PageContent";
 import { updateUser } from "../../features/user/userSlice";
+import { toast } from "react-toastify";
 
 function Profile() {
   const { isloading, user } = useSelector((store) => store.user);
@@ -21,7 +22,7 @@ function Profile() {
     e.preventDefault();
     const { name, email, location } = userData;
     if (!name || !email || !location) {
-      console.log("Empty fields");
+      toast.error("please fill out all fields");
       return;
     }
     dispatch(updateUser(userData));
@@ -40,7 +41,7 @@ function Profile() {
           {editData && (
             <div className="flex flex-col gap-2">
               <form
-                className="flex flex-col gap-2 w-1/2"
+                className="flex flex-col gap-2 w-full lg:md:w-1/2"
                 onSubmit={handleSubmit}
               >
                 {/* label, type, name, value, handleChange */}
@@ -68,16 +69,16 @@ function Profile() {
                 ></FormField>
                 <button
                   type="submit"
-                  className="bg-black text-white rounded-2xl p-3 items-center w-fit flex flex-row gap-2 justify-center"
+                  className="bg-yellow-400 btn w-fit flex flex-row gap-2 hover:bg-yellow-500"
                 >
                   {isloading ? "Please wait..." : "Save Changes"}
                 </button>
               </form>
               <button
                 onClick={() => setEditData(!editData)}
-                className="bg-black text-white rounded-2xl p-3 items-center w-fit flex flex-row gap-2 justify-center"
+                className="bg-red-400 btn w-fit flex flex-row gap-2 hover:bg-red-500"
               >
-                ❌ Cancel
+                Cancel
               </button>
             </div>
           )}
@@ -89,7 +90,7 @@ function Profile() {
               <p>Location: {user.location} </p>
               <button
                 onClick={() => setEditData(!editData)}
-                className="bg-black text-white rounded-2xl p-3 items-center w-fit flex flex-row gap-2 justify-center"
+                className="bg-yellow-400 btn w-fit flex flex-row gap-2 hover:bg-yellow-500"
               >
                 <SlPencil></SlPencil> Edit
               </button>

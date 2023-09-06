@@ -1,3 +1,11 @@
+import PropTypes from 'prop-types';
+
+Errormessage.propTypes = {
+  message: PropTypes.string,
+  setErrorMessageTrigger: PropTypes.any,
+};
+
+
 function Errormessage({ message, setErrorMessageTrigger }) {
   return (
     <>
