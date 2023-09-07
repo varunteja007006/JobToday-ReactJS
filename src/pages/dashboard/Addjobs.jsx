@@ -28,6 +28,8 @@ function Addjobs() {
 
   const dispatch = useDispatch();
 
+  console.log(isEditing, editJobId, user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!position || !company || !jobLocation) {
@@ -45,7 +47,7 @@ function Addjobs() {
     <>
       <PageTitle title={"Add Jobs"}></PageTitle>
       <PageContent>
-        <p> Add or edit jobs here.</p>
+        <p className="mb-2"> Add or edit jobs here.</p>
         <div className="lg:md:w-1/2 w-full">
           <form onSubmit={handleSubmit} className="flex flex-col gap-1">
             {/* position field */}
