@@ -54,7 +54,7 @@ function JobsContainer() {
   return (
     <div className="p-2 mb-5">
       <h3 className="text-xl ">Jobs</h3>
-      <div className="flex flex-wrap flex-row gap-5 justify-between">
+      <div className="flex flex-wrap flex-row gap-5 justify-normal">
         {jobs.map((job) => {
           return <Jobs key={job._id} {...job} />;
         })}

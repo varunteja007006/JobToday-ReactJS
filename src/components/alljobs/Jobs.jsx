@@ -1,7 +1,8 @@
 import moment from "moment";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteJob, setEditJob } from "../../features/job/jobSlice";
 
 Jobs.propTypes = {
   _id: PropTypes.any,
@@ -22,8 +23,9 @@ function Jobs({
   position,
   status,
 }) {
-
   const date = moment(createdAt).format("MMM Do, YYYY");
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -31,10 +33,33 @@ function Jobs({
         <div className="card-body">
           <span className=" border-b-2 border-zinc-400 pb-2">
             <h2 className="card-title">{position}</h2>
-            <p className="text-md">
-              <i className="fa-solid fa-building"></i> {company}
-            </p>
+
+            <span className="flex flex-row">
+              <p className="text-md">
+                <i className="fa-solid fa-building"></i> {company}
+              </p>{" "}
+              {status == "pending" ? (
+                <div className="badge py-3 capitalize bg-orange-400">
+                  {status}
+                </div>
+              ) : (
+                ""
+              )}
+              {status == "interview" ? (
+                <div className="badge py-3 capitalize bg-green-400">
+                  {status}
+                </div>
+              ) : (
+                ""
+              )}
+              {status == "declined" ? (
+                <div className="badge py-3 capitalize bg-red-400">{status}</div>
+              ) : (
+                ""
+              )}
+            </span>
           </span>
+
           <span className="grid grid-cols-2 gap-3 py-2">
             <p className="text-sm">
               <i className="fa-solid fa-location-dot"></i> {jobLocation}
@@ -47,18 +72,33 @@ function Jobs({
             <p className="text-sm">
               <i className="fa-solid fa-calendar"></i> {date ?? ""}
             </p>
-            {status ? (
-              <div className="badge bg-green-400">{status}</div>
-            ) : (
-              <div className="badge bg-red-500">{status}</div>
-            )}
           </span>
+
           <div className="card-actions justify-start">
-            <button id={_id} className="btn bg-red-400 hover:bg-red-500">Delete</button>
+            <button
+              onClick={() => {
+                dispatch(deleteJob(_id));
+              }}
+              className="btn bg-red-400 hover:bg-red-500"
+            >
+              Delete
+            </button>
 
             <Link
               to="/dashboard/addjobs"
               className="btn bg-yellow-400 hover:bg-yellow-500"
+              onClick={() => {
+                dispatch(
+                  setEditJob({
+                    editJobId: _id,
+                    position,
+                    company,
+                    jobLocation,
+                    jobType,
+                    status,
+                  })
+                );
+              }}
             >
               Edit
             </Link>

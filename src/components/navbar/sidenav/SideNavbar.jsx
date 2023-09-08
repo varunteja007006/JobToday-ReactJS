@@ -3,7 +3,7 @@ import { sidenavlinks } from "./sidenavlinks";
 
 function SideNavbar() {
   return (
-    <div className="flex flex-col gap-2 lg:md:flex-col min-h-screen lg:md:w-40 lg:md:w-75 bg-slate-100 dark:bg-cyan-900 dark:text-black">
+    <div className="hidden lg:flex lg:flex-col gap-2 md:flex-col min-h-screen md:w-40 md:w-75 bg-slate-100 dark:bg-cyan-900 dark:text-black">
       {sidenavlinks &&
         sidenavlinks.map((item) => {
           return (
@@ -13,7 +13,8 @@ function SideNavbar() {
                 className="tooltip tooltip-right text-md border-2 border-slate-300 bg-slate-200 hover:bg-slate-300 hover:shadow-md p-2 w-full"
                 data-tip={item.path_name}
               >
-                <i className={item.class_name}></i> <span className="ms-1">{item.path_name}</span>
+                <i className={item.class_name}></i>{" "}
+                <span className="ms-1">{item.path_name}</span>
               </Link>
             </div>
           );

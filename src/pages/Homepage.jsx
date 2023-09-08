@@ -13,7 +13,7 @@ function Homepage() {
   }, [user, navigate]);
 
   return (
-    <div className="flex lg:flex-row flex-col gap-5 w-full lg:h-screen h-fit items-center align-middle justify-center dark:text-white lg:md:container">
+    <div className="flex lg:flex-row flex-col gap-5 w-full lg:h-screen h-fit items-center align-middle justify-center dark:text-white md:container">
       <h1 className="text-4xl font-bold mt-2 ">JobToday</h1>
       <img src={banner} alt="banner" className="w-1/2 h-1/2"></img>
       <div className="flex flex-col">

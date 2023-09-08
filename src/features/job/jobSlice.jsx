@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getUserFromLocalStorage } from "../../utils/localStorage";
-import customFetch from "../../utils/axios";
-import { logoutUser } from "../user/userSlice";
 import { toast } from "react-toastify";
+import { createJobThunk, deleteJobThunk, editJobThunk } from "./jobThunk";
 
 const initialState = {
   isLoading: false,
@@ -17,26 +16,11 @@ const initialState = {
   editJobId: "",
 };
 
-export const createJob = createAsyncThunk(
-  "job/createJob",
-  async (job, thunkAPI) => {
-    try {
-      const resp = await customFetch.post("/jobs", job, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      });
-      thunkAPI.dispatch(clearValues());
-      return resp.data.msg;
-    } catch (error) {
-      if (error.response.status === 401) {
-        thunkAPI.dispatch(logoutUser());
-        return thunkAPI.rejectWithValue("unauthorized");
-      }
-      return thunkAPI.rejectWithValue(error?.response?.data?.msg);
-    }
-  }
-);
+export const createJob = createAsyncThunk("job/createJob", createJobThunk);
+
+export const deleteJob = createAsyncThunk("job/deleteJob", deleteJobThunk);
+
+export const editJob = createAsyncThunk("job/editJob", editJobThunk);
 
 const jobSlice = createSlice({
   name: "job",
@@ -51,6 +35,9 @@ const jobSlice = createSlice({
         jobLocation: getUserFromLocalStorage()?.location || "",
       };
     },
+    setEditJob: (state, { payload }) => {
+      return { ...state, isEditing: true, ...payload };
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -64,9 +51,26 @@ const jobSlice = createSlice({
       .addCase(createJob.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.error(payload);
+      })
+      .addCase(deleteJob.fulfilled, () => {
+        toast.success("Job Deleted");
+      })
+      .addCase(deleteJob.rejected, ({ payload }) => {
+        toast.error(payload);
+      })
+      .addCase(editJob.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(editJob.fulfilled, (state) => {
+        state.isLoading = false;
+        toast.success("Job Modified");
+      })
+      .addCase(editJob.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        toast.error(payload);
       });
   },
 });
 
-export const { handleChange, clearValues } = jobSlice.actions;
+export const { handleChange, clearValues, setEditJob } = jobSlice.actions;
 export default jobSlice.reducer;

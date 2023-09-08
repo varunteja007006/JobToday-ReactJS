@@ -7,6 +7,7 @@ import {
 } from "../../utils/localStorage";
 import { registerUserThunk } from "./userThunk";
 import { toast } from "react-toastify";
+import authHeader from "../../utils/authHeader";
 
 const initialState = {
   isLoading: false,
@@ -36,11 +37,11 @@ export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (user, thunkAPI) => {
     try {
-      const resp = await customFetch.patch("/auth/updateUser", user, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      });
+      const resp = await customFetch.patch(
+        "/auth/updateUser",
+        user,
+        authHeader(thunkAPI)
+      );
       return resp.data;
     } catch (error) {
       if (error.response.status === 401) {

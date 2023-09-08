@@ -6,6 +6,7 @@ import FormSelect from "../../components/forms/FormSelect";
 import {
   clearValues,
   createJob,
+  editJob,
   handleChange,
 } from "../../features/job/jobSlice";
 import { toast } from "react-toastify";
@@ -24,16 +25,29 @@ function Addjobs() {
     editJobId,
   } = useSelector((store) => store.job);
 
-  const { user } = useSelector((store) => store.user);
+  // const { user } = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
-
-  console.log(isEditing, editJobId, user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!position || !company || !jobLocation) {
       toast.error("Please fill out all fields");
+      return;
+    }
+    if (isEditing) {
+      dispatch(
+        editJob({
+          jobId: editJobId,
+          job: {
+            position,
+            company,
+            jobLocation,
+            jobType,
+            status,
+          },
+        })
+      );
       return;
     }
     dispatch(createJob({ position, company, jobLocation }));
@@ -48,7 +62,7 @@ function Addjobs() {
       <PageTitle title={"Add Jobs"}></PageTitle>
       <PageContent>
         <p className="mb-2"> Add or edit jobs here.</p>
-        <div className="lg:md:w-1/2 w-full">
+        <div className="md:w-1/2 w-full">
           <form onSubmit={handleSubmit} className="flex flex-col gap-1">
             {/* position field */}
             <FormField
@@ -111,7 +125,7 @@ function Addjobs() {
               className="btn mt-2 bg-yellow-400 hover:bg-yellow-500 hover:shadow-md w-fit"
               disabled={isLoading}
             >
-              {isLoading ? "Loading" : "Add Job/Edit Job"}
+              {isLoading ? "Loading" : isEditing ? "Modify" : "Add"}
             </button>
           </form>
         </div>

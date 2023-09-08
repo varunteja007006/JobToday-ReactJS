@@ -35,7 +35,7 @@ function Registerpage() {
     e.preventDefault();
     const { name, email, password } = values;
     if (!email || !password || (!login && !name)) {
-      toast.error('Please fill out all fields');
+      toast.error("Please fill out all fields");
       return;
     }
     // if login is true do not register but login the user
@@ -56,7 +56,7 @@ function Registerpage() {
   }, [user, navigate]);
 
   return (
-    <div className="flex flex-col lg:flex-row md:flex-row gap-5 w-full h-screen dark:text-white lg:md:container items-center justify-evenly">
+    <div className="flex flex-col lg:flex-row md:flex-row gap-5 w-full h-screen dark:text-white md:container items-center justify-evenly">
       {/* login/register page image */}
       <div className="hidden lg:contents">
         <img src={signinImage} alt="sign in image" className="w-1/2" />
@@ -143,7 +143,6 @@ function Registerpage() {
           )}
         </p>
       </span>
-
     </div>
   );
 }

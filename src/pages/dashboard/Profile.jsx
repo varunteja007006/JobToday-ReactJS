@@ -41,7 +41,7 @@ function Profile() {
           {editData && (
             <div className="flex flex-col gap-2">
               <form
-                className="flex flex-col gap-2 w-full lg:md:w-1/2"
+                className="flex flex-col gap-2 w-full md:w-1/2"
                 onSubmit={handleSubmit}
               >
                 {/* label, type, name, value, handleChange */}
@@ -84,7 +84,7 @@ function Profile() {
           )}
 
           {!editData && (
-            <div className="flex flex-col text-md lg:md:flex-col gap-5">
+            <div className="flex flex-col text-md md:flex-col gap-5">
               <p>Name: {user.name} </p>
               <p>Email: {user.email} </p>
               <p>Location: {user.location} </p>

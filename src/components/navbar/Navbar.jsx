@@ -3,6 +3,7 @@ import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../features/user/userSlice";
+import { sidenavlinks } from "./sidenav/sidenavlinks";
 
 function Navbar() {
   const { user } = useSelector((store) => store.user);
@@ -24,6 +25,7 @@ function Navbar() {
         </div>
         {/* Big screen navbar */}
         <div className="navbar-end lg:flex md:flex hidden">
+          {/* about us and login/register nav buttons */}
           {!user &&
             navlinks.map((item) => {
               return (
@@ -36,31 +38,27 @@ function Navbar() {
                 </Link>
               );
             })}
+          {/* user's name and logout button */}
           {user && (
-            <div className="navbar-end lg:flex md:flex hidden items-center">
-              <span
-                tabIndex={0}
-                className="ms-2 normal-case text-md px-3 py-1 rounded-lg font-semibold bg-green-200 border border-green-700 dark:border-white dark:bg-green-900"
+            <div className="lg:flex hidden items-center">
+              Logged in as:
+              <Link
+                key={"profile"}
+                to={"dashboard/profile"}
+                className="btn bg-green-600 ms-2 rounded-lg text-md hover:bg-green-500 text-white items-center"
               >
-                Logged in as:
-                <Link
-                  key={"profile"}
-                  to={"dashboard/profile"}
-                  className="btn bg-green-600 ms-2 rounded-lg text-md hover:bg-green-500 text-white items-center"
-                >
-                  {user.name}
-                </Link>
-                <Link
-                  className="btn bg-red-600 ms-2 rounded-lg text-md hover:bg-red-500 text-white items-center"
-                  key={"logout"}
-                  to={"/"}
-                  onClick={() => {
-                    dispatch(logoutUser());
-                  }}
-                >
-                  {"logout"}
-                </Link>
-              </span>
+                {user.name}
+              </Link>
+              <Link
+                className="btn bg-red-600 ms-2 rounded-lg text-md hover:bg-red-500 text-white items-center"
+                key={"logout"}
+                to={"/"}
+                onClick={() => {
+                  dispatch(logoutUser());
+                }}
+              >
+                {"logout"}
+              </Link>
             </div>
           )}
         </div>
@@ -86,16 +84,18 @@ function Navbar() {
             {/* dropdown menu options */}
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 w-fit rounded-lg bg-slate-100"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 w-36 rounded-lg bg-slate-100"
             >
-              <li key="home" className="">
-                <Link
-                  to="/"
-                  className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
-                >
-                  Homepage
-                </Link>
-              </li>
+              {!user && (
+                <li key="home" className="">
+                  <Link
+                    to="/"
+                    className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                  >
+                    Homepage
+                  </Link>
+                </li>
+              )}
 
               {!user &&
                 navlinks.map((item) => {
@@ -106,6 +106,21 @@ function Navbar() {
                         className="hover:bg-slate-400 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
                       >
                         {item.page_name}
+                      </Link>
+                    </li>
+                  );
+                })}
+
+              {user &&
+                sidenavlinks.map((item) => {
+                  const pathurl = `dashboard/${item.path_url}`;
+                  return (
+                    <li key={item.path_name} className="">
+                      <Link
+                        to={pathurl}
+                        className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                      >
+                        {item.path_name}
                       </Link>
                     </li>
                   );
