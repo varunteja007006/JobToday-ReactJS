@@ -9,7 +9,7 @@ export const sidenavlinks = [
     class_name: "fa-solid fa-plus",
   },
   {
-    path_url: "",
+    path_url: "stats",
     path_name: "Stats",
     class_name: "fa-solid fa-chart-column",
   },

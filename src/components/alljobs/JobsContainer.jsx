@@ -11,6 +11,7 @@ function JobsContainer() {
 
   useEffect(() => {
     dispatch(getAllJobs());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //   if job results loading
@@ -47,13 +48,12 @@ function JobsContainer() {
         </div>
       </>
     );
-  }
+  }             
 
-  //   if jobs are found
-  console.log(jobs);
+
   return (
     <div className="p-2 mb-5">
-      <h3 className="text-xl ">Jobs</h3>
+      <h3 className="text-xl font-semibold">Jobs</h3>
       <div className="flex flex-wrap flex-row gap-5 justify-normal">
         {jobs.map((job) => {
           return <Jobs key={job._id} {...job} />;

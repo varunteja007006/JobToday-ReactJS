@@ -64,6 +64,7 @@ function Registerpage() {
 
       {/* login/register form */}
       <span className="border border-gray-800 p-1 bg-gray-800 w-50 dark:bg-gray-500 lg:w-fit">
+        {/* login and register form */}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-3 border p-2 md:p-5 lg:p-5  border-gray-800 bg-slate-200 dark:bg-gray-800"
@@ -105,10 +106,11 @@ function Registerpage() {
             className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2  btn dark:bg-gray-300 dark:text-black"
             disabled={isLoading}
           >
-            {isLoading ? "Loading..." : "Submit"}
+            {isLoading ? "Loading..." : login ? "Login" : "Signup"}
           </button>
         </form>
 
+        {/* to switch from login and register page */}
         <p className="text-sm text-white text-center p-1">
           {login ? (
             <>
@@ -143,6 +145,24 @@ function Registerpage() {
           )}
         </p>
       </span>
+
+      {login && (
+        <div>
+          <form>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(
+                  loginUser({ email: "testUser@test.com", password: "secret" })
+                );
+              }}
+              className="btn border-2 border-orange-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:text-bold"
+            >
+              Test User Login
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

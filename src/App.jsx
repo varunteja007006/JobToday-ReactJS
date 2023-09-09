@@ -19,6 +19,7 @@ function App() {
         <div className="bg-blue-100 text-black dark:bg-gray-700 dark:text-white">
           {/* navigation bar */}
           <Navbar></Navbar>
+          {/* routes to other pages */}
           <Routes>
             <Route path="/" element={<Homepage></Homepage>}></Route>
             <Route path="/error" element={<Errorpage></Errorpage>}></Route>
@@ -26,6 +27,8 @@ function App() {
               path="/register"
               element={<Registerpage></Registerpage>}
             ></Route>
+
+            {/* After login routes */}
             <Route
               path="/dashboard/"
               element={
@@ -34,15 +37,15 @@ function App() {
                 </Protectedpage>
               }
             >
-              <Route index element={<Stats></Stats>}></Route>
               <Route path="alljobs" element={<Alljobs></Alljobs>}></Route>
               <Route path="addjobs" element={<Addjobs></Addjobs>}></Route>
+              <Route index path="stats" element={<Stats></Stats>}></Route>
               <Route path="profile" element={<Profile></Profile>}></Route>
             </Route>
           </Routes>
         </div>
       </main>
-      <ToastContainer  position='top-center' />
+      <ToastContainer position="top-center" />
     </BrowserRouter>
   );
 }
