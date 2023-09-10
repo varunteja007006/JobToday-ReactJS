@@ -156,7 +156,8 @@ function Registerpage() {
                   loginUser({ email: "testUser@test.com", password: "secret" })
                 );
               }}
-              className="btn border-2 border-orange-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:text-bold"
+              disabled={isLoading}
+              className="btn text-black  border-2 border-orange-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:font-bold"
             >
               Test User Login
             </button>

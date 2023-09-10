@@ -32,7 +32,7 @@ function Jobs({
       <div className="card border bg-zinc-100 border-gray-500 shadow-lg my-4 dark:border-white dark:bg-cyan-800 dark:text-white w-full md:w-80">
         <div className="card-body">
           <span className=" border-b-2 border-zinc-400 pb-2">
-            <h2 className="card-title">{position}</h2>
+            <h4 className="card-title">{position}</h4>
 
             <span className="flex flex-row">
               <p className="text-md">

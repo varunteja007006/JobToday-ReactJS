@@ -1,17 +1,9 @@
-import PropTypes from 'prop-types';
-
-FormSelect.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  optionList: PropTypes.any,
-  handleChange: PropTypes.func,
-};
+/* eslint-disable react/prop-types */
 
 function FormSelect({ label, name, value, optionList, handleChange }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label className="capitalize" htmlFor={name}>{label}</label>
 
       <select
         name={name}

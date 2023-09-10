@@ -33,7 +33,7 @@ function Homepage() {
         </p>
         <Link
           to="/register"
-          className="btn bg-yellow-400 hover:bg-yellow-500 hover:shadow-md m-5 lg:m-0"
+          className="btn text-black bg-yellow-400 hover:bg-yellow-500 hover:shadow-md m-5 lg:m-0"
         >
           Get started
         </Link>

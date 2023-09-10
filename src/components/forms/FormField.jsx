@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 FormField.propTypes = {
   label: PropTypes.string,
@@ -12,9 +12,11 @@ FormField.propTypes = {
 function FormField({ label, type, name, value, handleChange }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label className="capitalize" htmlFor={name}>
+        {label}
+      </label>
       <input
-        className="border border-gray-500 dark:text-black p-2"
+        className="border border-gray-500 dark:bg-white dark:text-black p-2"
         type={type}
         name={name}
         id={name}

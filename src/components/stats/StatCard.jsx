@@ -5,8 +5,8 @@ function StatCard({ title, count, icon, cardClass, countClass }) {
       <div className="card w-96 ">
         <div className={`card-body rounded-lg mr-3 ${cardClass}`}>
           <span className="flex flex-row items-center justify-between">
-            <h2 className="card-title capitalize">{title}</h2>
-            <span className="border border-black px-3 py-2 bg-white">
+            <h2 className="card-title capitalize dark:text-black">{title}</h2>
+            <span className="border border-black px-3 py-2 dark:text-black bg-white">
               <i className={`text-2xl ${icon}`}></i>
             </span>
           </span>

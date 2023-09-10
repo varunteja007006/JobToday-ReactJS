@@ -12,7 +12,7 @@ const initialFiltersState = {
 
 const initialState = {
   isLoading: true,
-  jobs: [],
+  jobs: [''],
   totalJobs: 0,
   numOfPages: 1,
   page: 1,
