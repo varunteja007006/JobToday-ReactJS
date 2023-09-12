@@ -2,7 +2,7 @@ import { navlinks } from "./navlinks";
 import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../../features/user/userSlice";
+import { clearStore } from "../../features/user/userSlice";
 import { sidenavlinks } from "./sidenav/sidenavlinks";
 
 function Navbar() {
@@ -54,7 +54,7 @@ function Navbar() {
                 key={"logout"}
                 to={"/"}
                 onClick={() => {
-                  dispatch(logoutUser());
+                  dispatch(clearStore("Logout Successful..."));
                 }}
               >
                 {"logout"}
@@ -131,7 +131,7 @@ function Navbar() {
                   <Link
                     to="/"
                     onClick={() => {
-                      dispatch(logoutUser());
+                      dispatch(clearStore());
                     }}
                     className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
                   >

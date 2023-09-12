@@ -1,20 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import FormField from "../forms/FormField";
 import FormSelect from "../forms/FormSelect";
+import {
+  handleChange,
+  clearFilters,
+} from "../../features/alljobs/alljobsSlice";
 
 function SearchContainer() {
   const { isLoading, search, searchStatus, searchType, sort, sortOptions } =
     useSelector((store) => store.alljobs);
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job);
   const dispatch = useDispatch();
-  const handleSearch = (e) => {};
+  const handleSearch = (e) => {
+    dispatch(handleChange({ name: e.target.name, value: e.target.value }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(clearFilters());
   };
   return (
     <div className="p-2 mb-5">
       <h3 className="text-xl font-semibold mb-3">Search</h3>
-      <form className="flex flex-wrap flex-row items-center gap-3 bg-slate-300 rounded-lg p-3 shadow-md">
+      <form className="flex flex-wrap flex-col md:flex-row items-center gap-3 bg-slate-300 rounded-lg p-3 shadow-md">
         <FormField
           label={"Search"}
           type={"text"}
@@ -48,7 +55,7 @@ function SearchContainer() {
         <button
           type="button"
           disabled={isLoading}
-          onClick={() => handleSubmit}
+          onClick={handleSubmit}
           className="bg-red-400 btn w-fit flex flex-row gap-2 hover:bg-red-500"
         >
           clear filters

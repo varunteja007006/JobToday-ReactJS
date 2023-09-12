@@ -5,7 +5,7 @@ import {
   getUserFromLocalStorage,
   removeUserFromLocalStorage,
 } from "../../utils/localStorage";
-import { registerUserThunk } from "./userThunk";
+import { clearStoreThunk, registerUserThunk } from "./userThunk";
 import { toast } from "react-toastify";
 import authHeader from "../../utils/authHeader";
 
@@ -52,6 +52,8 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const clearStore = createAsyncThunk("user/clearState", clearStoreThunk);
 
 const userSlice = createSlice({
   name: "user",
@@ -108,6 +110,9 @@ const userSlice = createSlice({
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.error(payload);
+      })
+      .addCase(clearStore.rejected, () => {
+        toast.error("There was an error");
       });
   },
 });

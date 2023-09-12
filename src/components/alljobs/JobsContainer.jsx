@@ -3,16 +3,27 @@ import Jobs from "./Jobs";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllJobs } from "../../features/alljobs/alljobsSlice";
+import PaginationContainer from "./PaginationContainer";
 
 function JobsContainer() {
-  const { jobs, isLoading } = useSelector((store) => store.alljobs);
+  const {
+    jobs,
+    isLoading,
+    page,
+    totalJobs,
+    numOfPages,
+    search,
+    searchStatus,
+    searchType,
+    sort,
+  } = useSelector((store) => store.alljobs);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllJobs());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, search, searchStatus, searchType, sort]);
 
   //   if job results loading
   if (isLoading) {
@@ -48,17 +59,19 @@ function JobsContainer() {
         </div>
       </>
     );
-  }             
-
+  }
 
   return (
     <div className="p-2 mb-5">
-      <h3 className="text-xl font-semibold">Jobs</h3>
+      <h3 className="text-xl font-semibold">
+        {totalJobs} Job{jobs.length > 1 && "s"} Found
+      </h3>
       <div className="flex flex-wrap flex-row gap-5 justify-normal">
         {jobs.map((job) => {
           return <Jobs key={job._id} {...job} />;
         })}
       </div>
+      {numOfPages > 1 && <PaginationContainer />}
     </div>
   );
 }

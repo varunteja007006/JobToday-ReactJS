@@ -28,7 +28,7 @@ function StatsContainer() {
     },
   ];
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col gap-2 md:flex-row">
       {defaultStats.map((item, index) => {
         return <StatCard key={index} {...item} />;
       })}
