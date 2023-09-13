@@ -5,19 +5,39 @@ import {
   handleChange,
   clearFilters,
 } from "../../features/alljobs/alljobsSlice";
+import { useMemo, useState } from "react";
 
 function SearchContainer() {
-  const { isLoading, search, searchStatus, searchType, sort, sortOptions } =
+  const { isLoading, searchStatus, searchType, sort, sortOptions } =
     useSelector((store) => store.alljobs);
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job);
   const dispatch = useDispatch();
+
+  const [localSearch, setLocalSearch] = useState("");
+
   const handleSearch = (e) => {
     dispatch(handleChange({ name: e.target.name, value: e.target.value }));
   };
+
+  const debounce = () => {
+    let timeoutID;
+    return (e) => {
+      setLocalSearch(e.target.value);
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout(() => {
+        dispatch(handleChange({ name: e.target.name, value: e.target.value }));
+      }, 1000);
+    };
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLocalSearch("");
     dispatch(clearFilters());
   };
+
+  const optimizedDebounce = useMemo(() => debounce(), []);
+
   return (
     <div className="p-2 mb-5">
       <h3 className="text-xl font-semibold mb-3">Search</h3>
@@ -26,8 +46,8 @@ function SearchContainer() {
           label={"Search"}
           type={"text"}
           name={"search"}
-          value={search}
-          handleChange={handleSearch}
+          value={localSearch}
+          handleChange={optimizedDebounce}
         ></FormField>
         <FormSelect
           label={"Status"}

@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import Jobs from "./Jobs";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -36,9 +35,6 @@ function JobsContainer() {
 
   //   if jobs are not found
   if (jobs.length === 0) {
-    {
-      toast.error("No jobs found...", { autoClose: 3000 });
-    }
     return (
       <>
         <div className="alert alert-error">
