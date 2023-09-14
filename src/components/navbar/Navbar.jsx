@@ -43,6 +43,15 @@ function Navbar() {
                 </Link>
               );
             })}
+          <button
+            className="btn rounded-full mx-2 text-lg items-center align-middle border-2 bg-yellow-200 hover:bg-yellow-300 hover:border-yellow-400 border-yellow-400 shadow-md dark:text-white hover:dark:bg-gray-800 dark:bg-black dark:border-gray-700"
+            type="button"
+            onClick={() => {
+              dispatch(changeTheme());
+            }}
+          >
+            {theme === "light" ? <BsFillSunFill /> : <BsFillMoonFill />}
+          </button>
           {/* user's name and logout button */}
           {user && (
             <div className="lg:flex hidden items-center">
@@ -66,15 +75,6 @@ function Navbar() {
               </Link>
             </div>
           )}
-          <button
-            className="btn rounded-full mx-2 text-lg items-center align-middle border-2 bg-yellow-200 hover:bg-yellow-300 hover:border-yellow-400 border-yellow-400 shadow-md dark:text-white hover:dark:bg-gray-800 dark:bg-black dark:border-gray-700"
-            type="button"
-            onClick={() => {
-              dispatch(changeTheme());
-            }}
-          >
-            {theme === "light" ? <BsFillSunFill /> : <BsFillMoonFill />}
-          </button>
         </div>
         {/* Small screen navbar */}
         <div className="navbar-end flex flex-auto lg:hidden p-2">

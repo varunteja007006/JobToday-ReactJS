@@ -17,10 +17,10 @@ const themeSlice = createSlice({
       state.theme = state.theme === "light" ? "dark" : "light";
       addThemeToLocalStorage(state.theme);
       if (state.theme === "dark") {
-        toast.success(state.theme, { autoClose: 1000, theme: "dark" });
+        toast.success("Dark Mode Enabled", { autoClose: 1000, theme: "dark" });
         return;
       }
-      toast.success(state.theme, { autoClose: 2000 });
+      toast.success("Light Mode Enabled", { autoClose: 2000 });
       return;
     },
   },
