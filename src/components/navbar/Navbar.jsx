@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearStore } from "../../features/user/userSlice";
 import { sidenavlinks } from "./sidenav/sidenavlinks";
+import { BsFillSunFill } from "react-icons/bs";
+import { BsFillMoonFill } from "react-icons/bs";
+import { changeTheme } from "../../features/theme/themeSlice";
 
 function Navbar() {
   const { user } = useSelector((store) => store.user);
+  const { theme } = useSelector((store) => store.theme);
+
   const dispatch = useDispatch();
 
   return (
     <>
-      <div className="navbar bg-slate-100 dark:bg-cyan-900">
+      <div className="navbar bg-slate-100 dark:bg-cyan-900 p-4">
         {/* logo and brandname */}
         <div className="lg:flex-1 navbar-center">
           <img
@@ -61,9 +66,29 @@ function Navbar() {
               </Link>
             </div>
           )}
+          <button
+            className="btn rounded-full mx-2 text-lg items-center align-middle border-2 bg-yellow-200 hover:bg-yellow-300 hover:border-yellow-400 border-yellow-400 shadow-md dark:text-white hover:dark:bg-gray-800 dark:bg-black dark:border-gray-700"
+            type="button"
+            onClick={() => {
+              dispatch(changeTheme());
+            }}
+          >
+            {theme === "light" ? <BsFillSunFill /> : <BsFillMoonFill />}
+          </button>
         </div>
         {/* Small screen navbar */}
-        <div className="navbar-end flex flex-auto lg:hidden">
+        <div className="navbar-end flex flex-auto lg:hidden p-2">
+          <div>
+            <button
+              className="btn rounded-full mx-2 text-lg border-2 bg-yellow-200 hover:bg-yellow-300 hover:border-yellow-400 border-yellow-400 shadow-md dark:text-white hover:dark:bg-gray-800 dark:bg-black dark:border-gray-700"
+              type="button"
+              onClick={() => {
+                dispatch(changeTheme());
+              }}
+            >
+              {theme === "light" ? <BsFillSunFill /> : <BsFillMoonFill />}
+            </button>
+          </div>
           <div className="dropdown dropdown-end">
             {/* dropdown hamburger symbol */}
             <button className="btn btn-square text-black hover:bg-slate-300 bg-slate-200 border border-slate-300 hover:shadow-md">
@@ -97,6 +122,7 @@ function Navbar() {
                   </Link>
                 </li>
               )}
+
               {/* about us and login/register page */}
               {!user &&
                 navlinks.map((item) => {
@@ -111,7 +137,7 @@ function Navbar() {
                     </li>
                   );
                 })}
-
+              {/* after login navigation options */}
               {user &&
                 sidenavlinks.map((item) => {
                   const pathurl = `dashboard/${item.path_url}`;
@@ -126,7 +152,7 @@ function Navbar() {
                     </li>
                   );
                 })}
-
+              {/* logout button */}
               {user && (
                 <li key="logout" className="">
                   <Link

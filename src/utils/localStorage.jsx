@@ -11,3 +11,15 @@ export const getUserFromLocalStorage = () => {
   const user = result ? JSON.parse(result) : null;
   return user;
 };
+
+export const addThemeToLocalStorage = (theme) => {
+  localStorage.setItem("theme", JSON.stringify(theme));
+};
+
+export const getThemeFromLocalStorage = () => {
+  const theme = localStorage.getItem("theme");
+  if (theme) {
+    return JSON.parse(theme);
+  }
+  return "light";
+};
