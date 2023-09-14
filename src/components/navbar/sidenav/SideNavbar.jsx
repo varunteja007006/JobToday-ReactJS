@@ -3,7 +3,7 @@ import { sidenavlinks } from "./sidenavlinks";
 
 function SideNavbar() {
   return (
-    <div className="hidden lg:flex lg:flex-col gap-2 md:flex-col min-h-screen md:w-40 md:w-75 bg-slate-100 dark:bg-cyan-900 dark:text-black">
+    <div className="hidden lg:flex lg:flex-col gap-2 min-h-screen md:w-40 md:w-75 bg-slate-100 dark:bg-cyan-900 dark:text-black">
       {sidenavlinks &&
         sidenavlinks.map((item) => {
           return (

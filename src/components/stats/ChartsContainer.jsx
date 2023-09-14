@@ -12,7 +12,7 @@ function ChartsContainer() {
       <p>
         Switch to :
         <span>
-          <button className="btn m-3 bg-yellow-300 hover:shadow-lg hover:bg-yellow-400" type="button" onClick={() => setBarChart(!barChart)}>
+          <button className="btn m-3 text-black bg-yellow-300 hover:shadow-md hover:bg-yellow-400" type="button" onClick={() => setBarChart(!barChart)}>
             {barChart ? "Area Chart" : "Bar Chart"}
           </button>
         </span>

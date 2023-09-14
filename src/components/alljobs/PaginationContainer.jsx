@@ -23,9 +23,9 @@ function PaginationContainer() {
   };
   return (
     <>
-      <div className="join gap-1 ">
+      <div className="flex flex-wrap md:join gap-1 ">
         <button
-          className="join-item btn btn-outline bg-sky-200 border-1 border-black shadow-lg"
+          className="join-item btn btn-outline text-black bg-sky-200 border-1 border-black shadow-lg"
           onClick={prevPage}
         >
           Previous page
@@ -46,7 +46,7 @@ function PaginationContainer() {
           );
         })}
         <button
-          className="join-item btn btn-outline  border-1 border-black bg-sky-200 shadow-lg"
+          className="join-item btn btn-outline text-black border-1 border-black bg-sky-200 shadow-lg"
           onClick={nextPage}
         >
           Next

@@ -39,21 +39,21 @@ function Jobs({
                 <i className="fa-solid fa-building"></i> {company}
               </p>{" "}
               {status == "pending" ? (
-                <div className="badge py-3 capitalize bg-orange-400">
+                <div className="badge text-black py-3 capitalize bg-orange-400">
                   {status}
                 </div>
               ) : (
                 ""
               )}
               {status == "interview" ? (
-                <div className="badge py-3 capitalize bg-green-400">
+                <div className="badge text-black py-3 capitalize bg-green-400">
                   {status}
                 </div>
               ) : (
                 ""
               )}
               {status == "declined" ? (
-                <div className="badge py-3 capitalize bg-red-400">{status}</div>
+                <div className="badge text-black py-3 capitalize bg-red-400">{status}</div>
               ) : (
                 ""
               )}
@@ -79,14 +79,14 @@ function Jobs({
               onClick={() => {
                 dispatch(deleteJob(_id));
               }}
-              className="btn bg-red-400 hover:bg-red-500"
+              className="btn text-black bg-red-400 hover:bg-red-500 hover:shadow-md"
             >
               Delete
             </button>
 
             <Link
               to="/dashboard/addjobs"
-              className="btn bg-yellow-400 hover:bg-yellow-500"
+              className="btn text-black bg-yellow-400 hover:bg-yellow-500 hover:shadow-md"
               onClick={() => {
                 dispatch(
                   setEditJob({

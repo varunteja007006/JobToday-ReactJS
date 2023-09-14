@@ -86,24 +86,25 @@ function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 w-36 rounded-lg bg-slate-100"
             >
+              {/* homepage button */}
               {!user && (
                 <li key="home" className="">
                   <Link
                     to="/"
-                    className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                    className="text-black border border-black bg-slate-200 hover:bg-slate-400 mt-1 hover:shadow-md active:bg-slate-400"
                   >
                     Homepage
                   </Link>
                 </li>
               )}
-
+              {/* about us and login/register page */}
               {!user &&
                 navlinks.map((item) => {
                   return (
                     <li key={item.page_name} className="">
                       <Link
                         to={item.page_url}
-                        className="hover:bg-slate-400 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                        className="text-black border border-black bg-slate-200 hover:bg-slate-400 mt-1 hover:shadow-md active:bg-slate-400"
                       >
                         {item.page_name}
                       </Link>
@@ -118,7 +119,7 @@ function Navbar() {
                     <li key={item.path_name} className="">
                       <Link
                         to={pathurl}
-                        className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                        className="bg-slate-200 text-black border border-black hover:bg-slate-300 mt-1 hover:shadow-md active:bg-slate-400"
                       >
                         {item.path_name}
                       </Link>
@@ -133,7 +134,7 @@ function Navbar() {
                     onClick={() => {
                       dispatch(clearStore());
                     }}
-                    className="hover:bg-slate-300 mt-1 bg-slate-200 hover:shadow-md active:bg-slate-400"
+                    className="bg-slate-200 text-black border border-black hover:bg-slate-300 mt-1  hover:shadow-md active:bg-slate-400"
                   >
                     Logout
                   </Link>

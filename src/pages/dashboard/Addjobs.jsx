@@ -112,7 +112,7 @@ function Addjobs() {
             {/* submit button */}
             <button
               type="button"
-              className="btn mt-2 bg-cyan-400 hover:bg-cyan-500 hover:shadow-md w-fit"
+              className="btn mt-2 text-black bg-cyan-400 hover:bg-cyan-500 hover:shadow-md w-fit"
               disabled={isLoading}
               onClick={() => {
                 dispatch(clearValues());
@@ -122,7 +122,7 @@ function Addjobs() {
             </button>
             <button
               type="submit"
-              className="btn mt-2 bg-yellow-400 hover:bg-yellow-500 hover:shadow-md w-fit"
+              className="btn mt-2 text-black bg-yellow-400 hover:bg-yellow-500 hover:shadow-md w-fit"
               disabled={isLoading}
             >
               {isLoading ? "Loading" : isEditing ? "Modify" : "Add"}

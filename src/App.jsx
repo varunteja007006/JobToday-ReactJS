@@ -15,11 +15,11 @@ function App() {
   return (
     <BrowserRouter>
       {/* main tab is to toggle between dark and light modes */}
-      <main className="light">
+      <main className="dark">
         <div className="bg-blue-100 text-black dark:bg-gray-700 dark:text-white">
           {/* navigation bar */}
           <Navbar></Navbar>
-          {/* routes to other pages */}
+          {/* routes to pages */}
           <Routes>
             <Route path="/" element={<Homepage></Homepage>}></Route>
             <Route path="/error" element={<Errorpage></Errorpage>}></Route>

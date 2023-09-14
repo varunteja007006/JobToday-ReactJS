@@ -16,7 +16,7 @@ function FormField({ label, type, name, value, handleChange }) {
         {label}
       </label>
       <input
-        className="border border-gray-500 dark:bg-white dark:text-black p-2"
+        className="border border-gray-500 bg-white text-black p-2"
         type={type}
         name={name}
         id={name}

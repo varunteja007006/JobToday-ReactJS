@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import FormField from "../../components/forms/FormField";
 import { useState } from "react";
-import { SlPencil } from "react-icons/sl/index";
 import PageTitle from "../../components/dashboard/PageTitle";
 import PageContent from "../../components/dashboard/PageContent";
 import { updateUser } from "../../features/user/userSlice";
@@ -37,7 +36,7 @@ function Profile() {
     <>
       <PageTitle title={"Profile"}></PageTitle>
       <PageContent>
-        <div className="">
+        <>
           {editData && (
             <div className="flex flex-col gap-2">
               <form
@@ -69,14 +68,14 @@ function Profile() {
                 ></FormField>
                 <button
                   type="submit"
-                  className="bg-yellow-400 btn w-fit flex flex-row gap-2 hover:bg-yellow-500"
+                  className="btn bg-yellow-400 text-black w-fit flex flex-row gap-2 hover:bg-yellow-500"
                 >
                   {isloading ? "Please wait..." : "Save Changes"}
                 </button>
               </form>
               <button
                 onClick={() => setEditData(!editData)}
-                className="bg-red-400 btn w-fit flex flex-row gap-2 hover:bg-red-500"
+                className="btn bg-red-400 text-black w-fit flex flex-row gap-2 hover:bg-red-500"
               >
                 Cancel
               </button>
@@ -84,19 +83,19 @@ function Profile() {
           )}
 
           {!editData && (
-            <div className="flex flex-col text-md md:flex-col gap-5">
+            <div className="flex flex-col text-md gap-5">
               <p>Name: {user.name} </p>
               <p>Email: {user.email} </p>
               <p>Location: {user.location} </p>
               <button
                 onClick={() => setEditData(!editData)}
-                className="bg-yellow-400 btn w-fit flex flex-row gap-2 hover:bg-yellow-500"
+                className="btn bg-yellow-400 w-fit flex flex-row gap-2 text-black hover:shadow-md hover:bg-yellow-500"
               >
-                <SlPencil></SlPencil> Edit
+              Edit
               </button>
             </div>
           )}
-        </div>
+        </>
       </PageContent>
     </>
   );

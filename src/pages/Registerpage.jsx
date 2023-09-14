@@ -103,7 +103,8 @@ function Registerpage() {
           {/* submit button */}
           <button
             type="submit"
-            className="bg-gray-800 hover:bg-gray-700 text-white w-fit p-2  btn dark:bg-gray-300 dark:text-black"
+            className="btn bg-gray-600 hover:bg-gray-800 border-2 border-gray-800 hover:border-gray-800 
+            text-white w-fit p-2 dark:bg-gray-300 dark:text-black dark:hover:bg-gray-400"
             disabled={isLoading}
           >
             {isLoading ? "Loading..." : login ? "Login" : "Signup"}
@@ -146,6 +147,7 @@ function Registerpage() {
         </p>
       </span>
 
+      {/* Test user login button */}
       {login && (
         <div>
           <form>
@@ -157,7 +159,7 @@ function Registerpage() {
                 );
               }}
               disabled={isLoading}
-              className="btn text-black  border-2 border-orange-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:font-bold"
+              className="btn text-black border border-orange-500 bg-orange-400 hover:bg-orange-500 hover:border-orange-500 hover:shadow-md m-5 lg:m-0"
             >
               Test User Login
             </button>

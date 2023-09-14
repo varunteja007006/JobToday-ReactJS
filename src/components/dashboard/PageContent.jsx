@@ -7,7 +7,7 @@ PageContent.propTypes = {
 function PageContent({ children }) {
   return (
     <>
-      <div className="bg-white dark:bg-gray-300 text-black p-5 shadow-xl">{children}</div>
+      <div className="bg-white dark:bg-gray-300 text-black p-5 shadow-xl ">{children}</div>
     </>
   );
 }

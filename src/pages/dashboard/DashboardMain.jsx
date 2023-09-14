@@ -5,7 +5,7 @@ function DashboardMain() {
   return (
     <div className="flex flex-row">
       <SideNavbar></SideNavbar>
-      <div className="min-h-screen w-screen md:px-5 pt-2 md:py-3">
+      <div className="min-h-screen w-screen pt-2 md:px-5 md:py-3">
         <Outlet></Outlet>
       </div>
     </div>

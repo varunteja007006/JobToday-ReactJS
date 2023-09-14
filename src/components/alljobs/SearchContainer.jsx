@@ -76,7 +76,7 @@ function SearchContainer() {
           type="button"
           disabled={isLoading}
           onClick={handleSubmit}
-          className="bg-red-400 btn w-fit flex flex-row gap-2 hover:bg-red-500"
+          className="bg-red-300 btn w-fit flex flex-row gap-2 text-black hover:bg-red-400 hover:shadow-md"
         >
           clear filters
         </button>
