@@ -1,27 +1,32 @@
 # JobToday
 
 This project is a frontend for the jobs REST APIs. It features:
+
 - CRUD operations
 - Axios promise-based http client(XMLHttpRequests)
 - React Router for routing the pages.
 - Global state management (Redux)
-- Recharts for beautiful bar charts area charts, etc.. 
-- Daisy UI Components, Tailwind CSS for styling.  
+- Recharts for beautiful bar charts area charts, etc..
+- Daisy UI Components, Tailwind CSS for styling.
 
 For more information on the above mentioned modules check the package.json file for dependencies. Some Dependencies with their URLs are also mentioned at the bottom of the Readme.md file.
 
 Thank you for checking this repo.
 
-### Reference: 
- - Udemy Course: https://www.udemy.com/share/101uUA3@YUODKTrZCO0tVdBtYdIuAt04GIiuUGDEILV-9EKBf4xOvhIrUm1URnnMudYTABaSMw==/
+### Reference:
 
-### Tailwind CSS configuration 
-tailwind.config.js 
+- Udemy Course: https://www.udemy.com/share/101uUA3@YUODKTrZCO0tVdBtYdIuAt04GIiuUGDEILV-9EKBf4xOvhIrUm1URnnMudYTABaSMw==/
+
+### Tailwind CSS configuration
+
+tailwind.config.js
+
 - Container config
 - Added daisyUI plugin
 - Added Dark mode
 
 ### React (with Vite) the src folder:
+
 - **assets**
 - **components**
 - **features**
@@ -40,28 +45,33 @@ tailwind.config.js
 - store.jsx:
 
 - **assets**
+
   - **images**
-  > assets/images - In the images folder images that are required for the project are stored.
+    > In this folder images that are required for the project are stored.
 
 - components
 
   - alljobs
+
     - Jobs.jsx
     - JobsContainer.jsx
     - PaginationContainer.jsx
     - SearchContainer.jsx
 
   - dashboard
+
     - PageContent.jsx
     - PageTitle.jsx
 
   - forms
+
     - FormField.jsx
     - FormSelect.jsx
 
   - navbar
 
     - sidenav
+
       - SideNavbar.jsx
       - sidenavlinks.jsx
 
@@ -79,13 +89,16 @@ tailwind.config.js
 - features
 
   - alljobs
+
     - alljobsSlice.jsx
 
   - job
+
     - jobSlice.jsx
     - jobThunk.jsx
 
   - theme
+
     - themeSlice.jsx
 
   - user
@@ -95,6 +108,7 @@ tailwind.config.js
 - pages
 
   - dashboard
+
     - Addjobs.jsx
     - Alljobs.jsx
     - DashboardMain.jsx
