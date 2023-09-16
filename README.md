@@ -1,6 +1,6 @@
 # JobToday
 
-This project is a frontend for the jobs REST APIs. It features 
+This project is a frontend for the jobs REST APIs. It features:
 - CRUD operations
 - Axios promise-based http client(XMLHttpRequests)
 - React Router for routing the pages.
@@ -27,10 +27,10 @@ tailwind.config.js
 - features
 - pages
 - utils
-  - App.jsx
-  - index.css
-  - main.jsx
-  - store.jsx
+- App.jsx
+- index.css
+- main.jsx
+- store.jsx
 
 ### src folder in detail:
 
