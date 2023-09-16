@@ -22,7 +22,7 @@ tailwind.config.js
 - Added Dark mode
 
 ### React (with Vite) the src folder:
-- assets
+- *assets*
 - components
 - features
 - pages
@@ -72,9 +72,9 @@ tailwind.config.js
     - charts
       - AreaChart.jsx
       - BarChart.jsx
-      - ChartsContainer.jsx
-      - StatCard.jsx
-      - StatContainer.jsx
+    - ChartsContainer.jsx
+    - StatCard.jsx
+    - StatContainer.jsx
 
 - features
 
