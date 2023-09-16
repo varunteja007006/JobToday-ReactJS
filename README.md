@@ -47,7 +47,9 @@ tailwind.config.js
 - **assets**
 
   - **images**
+    
     > In this folder images that are required for the project are stored.
+    
 
 - components
 
