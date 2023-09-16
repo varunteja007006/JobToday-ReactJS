@@ -1,44 +1,57 @@
 Tailwind CSS configuration
 
 tailwind.config.js
+
 - Container config
 - Added daisyUI plugin
 - Added Dark mode
 
 React (with Vite)
 In the src folder:
+
 - assets
 - components
 - features
 - pages
 - utils
--- App.jsx
--- index.css
--- main.jsx
--- store.jsx
+  -- App.jsx
+  -- index.css
+  -- main.jsx
+  -- store.jsx
 
 src folder in detail:
 
--- App.jsx
--- index.css
--- main.jsx
--- store.jsx
+- - App.jsx
+- - index.css
+- - main.jsx
+- - store.jsx:
 
 - assets
+
   - images
 
 - components
+
   - alljobs
+    -- Jobs.jsx
+    -- JobsContainer.jsx
+    -- PaginationContainer.jsx
+    -- SearchContainer.jsx
 
   - dashboard
+    -- PageContent.jsx
+    -- PageTitle.jsx
 
   - forms
+    -- FormField.jsx
+    -- FormSelect.jsx
 
   - navbar
+
     - sidenav
       -- SideNavbar.jsx
       -- sidenavlinks.jsx
-      
+
     -- Navbar.jsx
     -- navlinks.jsx
 
@@ -46,11 +59,12 @@ src folder in detail:
     - charts
       -- AreaChart.jsx
       -- BarChart.jsx
-    -- ChartsContainer.jsx
-    -- StatCard.jsx
-    -- StatContainer.jsx
+      -- ChartsContainer.jsx
+      -- StatCard.jsx
+      -- StatContainer.jsx
 
 - features
+
   - alljobs
     -- alljobsSlice.jsx
 
@@ -58,29 +72,34 @@ src folder in detail:
     -- jobSlice.jsx
     -- jobThunk.jsx
 
+  - theme
+    -- themeSlice.jsx
+
   - user
     -- userSlice.jsx
     -- userThunk.jsx
 
 - pages
+
   - dashboard
     -- Addjobs.jsx
     -- Alljobs.jsx
     -- DashboardMain.jsx
     -- Profile.jsx
     -- Stats.jsx
-  
+
   -- Errorpage.jsx
   -- Homepage.jsx
   -- Protectedpage.jsx
   -- Registerpage.jsx
 
-- utils 
--- authHeader.jsx
--- axios.jsx
--- localStorage.jsx
+- utils
+  -- authHeader.jsx
+  -- axios.jsx
+  -- localStorage.jsx
 
-Dependencies
+### Dependencies
+
 Installed dependencies to help build this project
 
 - moment js (https://momentjs.com/)
