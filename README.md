@@ -15,7 +15,7 @@ Thank you for checking this repo.
 
 ### Reference:
 
-- Udemy Course: https://www.udemy.com/share/101uUA3@YUODKTrZCO0tVdBtYdIuAt04GIiuUGDEILV-9EKBf4xOvhIrUm1URnnMudYTABaSMw==/
+- Udemy Course: [click here](https://www.udemy.com/share/101uUA3@YUODKTrZCO0tVdBtYdIuAt04GIiuUGDEILV-9EKBf4xOvhIrUm1URnnMudYTABaSMw==/)
 
 ### Tailwind CSS configuration
 
@@ -44,37 +44,36 @@ tailwind.config.js
 - main.jsx
 - store.jsx:
 
-  > All the reducers are configured here in the store file make the states available globally.
+  > All the reducers are configured here in the store.jsx file make the states to be available globally in the app.
 
 - **assets**
 
   - **images**
-    
-    > In this folder images that are required for the project are stored.
-    
 
-- components
+    > In this "images" folder all the images that are required for the project are stored.
 
-  - alljobs
+- **components**
+
+  - **alljobs**
 
     - Jobs.jsx
     - JobsContainer.jsx
     - PaginationContainer.jsx
     - SearchContainer.jsx
 
-  - dashboard
+  - **dashboard**
 
     - PageContent.jsx
     - PageTitle.jsx
 
-  - forms
+  - **forms**
 
     - FormField.jsx
     - FormSelect.jsx
 
-  - navbar
+  - **navbar**
 
-    - sidenav
+    - **sidenav**
 
       - SideNavbar.jsx
       - sidenavlinks.jsx
@@ -82,36 +81,40 @@ tailwind.config.js
     - Navbar.jsx
     - navlinks.jsx
 
-  - stats
-    - charts
+  - **stats**
+
+    - **charts**
+      
       - AreaChart.jsx
       - BarChart.jsx
+
     - ChartsContainer.jsx
     - StatCard.jsx
     - StatContainer.jsx
 
-- features
+- **features**
 
-  - alljobs
+  - **alljobs**
 
     - alljobsSlice.jsx
 
-  - job
+  - **job**
 
     - jobSlice.jsx
     - jobThunk.jsx
 
-  - theme
+  - **theme**
 
     - themeSlice.jsx
 
-  - user
+  - **user**
+    
     - userSlice.jsx
     - userThunk.jsx
 
-- pages
+- **pages**
 
-  - dashboard
+  - **dashboard**
 
     - Addjobs.jsx
     - Alljobs.jsx
@@ -124,7 +127,8 @@ tailwind.config.js
   - Protectedpage.jsx
   - Registerpage.jsx
 
-- utils
+- **utils**
+  
   - authHeader.jsx
   - axios.jsx
   - localStorage.jsx
