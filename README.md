@@ -22,11 +22,11 @@ tailwind.config.js
 - Added Dark mode
 
 ### React (with Vite) the src folder:
-- *assets*
-- components
-- features
-- pages
-- utils
+- **assets**
+- **components**
+- **features**
+- **pages**
+- **utils**
 - App.jsx
 - index.css
 - main.jsx
@@ -39,9 +39,9 @@ tailwind.config.js
 - main.jsx
 - store.jsx:
 
-- assets
-
-  - images
+- **assets**
+  - **images**
+> assets/images - Images that are required for the project are stored.
 
 - components
 
