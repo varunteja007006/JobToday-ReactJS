@@ -44,6 +44,8 @@ tailwind.config.js
 - main.jsx
 - store.jsx:
 
+  > All the reducers are configured here in the store file make the states available globally.
+
 - **assets**
 
   - **images**

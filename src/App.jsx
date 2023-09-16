@@ -17,7 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* main tab is to toggle between dark and light modes */}
+      {/* main tag to toggle between dark and light modes */}
       <main className={` ${theme}`}>
         <div className="bg-blue-100 text-black dark:bg-gray-700 dark:text-white">
           {/* navigation bar */}
