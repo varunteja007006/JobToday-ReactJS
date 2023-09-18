@@ -50,7 +50,7 @@ tailwind.config.js
 
   - **images**
 
-    > In this "images" folder all the images that are required for the project are stored.
+    > In this "images" folder all the images that are required for the project are stored
 
 - **components**
 
