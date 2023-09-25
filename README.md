@@ -1,6 +1,12 @@
-# JobToday
+# JobToday ⚡
 
-This project is a frontend for the jobs REST APIs. It features:
+## Your ultimate easy to use ToDo App
+
+### Built with 💚Vite + 💙React JS
+
+This is a React based frontend project.
+
+## Features
 
 - CRUD operations
 - Axios promise-based http client(XMLHttpRequests)
@@ -50,7 +56,7 @@ tailwind.config.js
 
   - **images**
 
-    > In this "images" folder all the images that are required for the project are stored
+    > In this "images" folder all the images that are required for the project are stored.
 
 - **components**
 
@@ -84,7 +90,7 @@ tailwind.config.js
   - **stats**
 
     - **charts**
-      
+
       - AreaChart.jsx
       - BarChart.jsx
 
@@ -108,7 +114,7 @@ tailwind.config.js
     - themeSlice.jsx
 
   - **user**
-    
+
     - userSlice.jsx
     - userThunk.jsx
 
@@ -128,7 +134,7 @@ tailwind.config.js
   - Registerpage.jsx
 
 - **utils**
-  
+
   - authHeader.jsx
   - axios.jsx
   - localStorage.jsx
