@@ -1,6 +1,19 @@
 # JobToday ⚡
 
-## Your ultimate easy to use ToDo App
+## Your ultimate easy to use Job Application Manager App.
+
+Applying Jobs can be tiring. You want to know what is more tiring? Keeping track of those jobs. **JobToday ⚡** - The Pro Job Application Manager App will help you keep track of your job applications.
+
+Supports 4 Job types:
+- Full-Time
+- Part-Time
+- Remote
+- Internship
+
+A much stress relieving part is you can set the status of each of your application to Pending/ Interview/ Declined.
+
+Finally you get stats to check your job applications applied every month. 
+
 
 ### Built with 💚Vite + 💙React JS
 
@@ -14,6 +27,8 @@ This is a React based frontend project.
 - Global state management (Redux)
 - Recharts for beautiful bar charts area charts, etc..
 - Daisy UI Components, Tailwind CSS for styling.
+- Dark/Light Mode
+- Filter the Job Applications with ease.
 
 For more information on the above mentioned modules check the package.json file for dependencies. Some Dependencies with their URLs are also mentioned at the bottom of the Readme.md file.
 
