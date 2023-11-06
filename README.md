@@ -12,7 +12,7 @@ Supports 4 Job types:
 
 A much stress relieving part is you can set the status of each of your application to Pending/ Interview/ Declined.
 
-Finally you get stats to check your job applications applied every month. 
+Finally, you get stats to check your job applications applied every month. 
 
 
 ### Built with 💚Vite + 💙React JS
