@@ -5,6 +5,7 @@
 Applying Jobs can be tiring. You want to know what is more tiring? Keeping track of those jobs. **JobToday ⚡** - The Pro Job Application Manager App will help you keep track of your job applications.
 
 Supports 4 Job types:
+
 - Full-Time
 - Part-Time
 - Remote
@@ -12,12 +13,15 @@ Supports 4 Job types:
 
 A much stress relieving part is you can set the status of each of your application to Pending/ Interview/ Declined.
 
-Finally, you get stats to check your job applications applied every month. 
-
+Finally, you get stats to check your job applications applied every month.
 
 ### Built with 💚Vite + 💙React JS
 
 This is a React based frontend project.
+
+###
+
+Finally deployed on Netlify.
 
 ## Features
 

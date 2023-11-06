@@ -74,15 +74,13 @@ function Registerpage() {
           </h4>
           {/* name field */}
           {!login && (
-            <>
-              <FormField
-                label="Name"
-                type="text"
-                name="name"
-                value={values.name}
-                handleChange={handleChange}
-              />
-            </>
+            <FormField
+              label="Name"
+              type="text"
+              name="name"
+              value={values.name}
+              handleChange={handleChange}
+            />
           )}
           {/* email field */}
           <FormField
@@ -148,24 +146,22 @@ function Registerpage() {
       </span>
 
       {/* Test user login button */}
-      {login && (
-        <div>
-          <form>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(
-                  loginUser({ email: "testUser@test.com", password: "secret" })
-                );
-              }}
-              disabled={isLoading}
-              className="btn text-black border border-orange-500 bg-orange-400 hover:bg-orange-500 hover:border-orange-500 hover:shadow-md m-5 lg:m-0"
-            >
-              Test User Login
-            </button>
-          </form>
-        </div>
-      )}
+      <div className={`${login ? "visible" : "invisible"}`}>
+        <form>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(
+                loginUser({ email: "testUser@test.com", password: "secret" })
+              );
+            }}
+            disabled={isLoading}
+            className="btn text-black border border-orange-500 bg-orange-400 hover:bg-orange-500 hover:border-orange-500 hover:shadow-md m-5 lg:m-0"
+          >
+            Test User Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
