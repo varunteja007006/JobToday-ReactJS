@@ -22,7 +22,6 @@ function PaginationContainer() {
     dispatch(changePage(newPage));
   };
   return (
-    <>
       <div className="flex flex-wrap md:join gap-1 ">
         <button
           className="join-item btn btn-outline text-black bg-sky-200 border-1 border-black shadow-lg"
@@ -52,7 +51,6 @@ function PaginationContainer() {
           Next
         </button>
       </div>
-    </>
   );
 }
 
