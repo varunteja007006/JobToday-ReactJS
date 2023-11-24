@@ -146,7 +146,7 @@ function Registerpage() {
       </span>
 
       {/* Test user login button */}
-      <div className={`${login ? "visible" : "invisible"}`}>
+      <div className={`${login ? "visible" : "invisible"} text-center`}>
         <form>
           <button
             onClick={(e) => {
@@ -160,6 +160,12 @@ function Registerpage() {
           >
             Test User Login
           </button>
+          <p className=" text-sm mt-5">
+            You can test the app by logging in as test user.
+          </p>
+          <p className=" text-sm mt-5 text-red-600 font-bold">
+            NOTE: THIS USER HAS READONLY ACCESS.
+          </p>
         </form>
       </div>
     </div>
